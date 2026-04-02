@@ -1,16 +1,20 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
+
 def index(request):
-  context = {
-    'title': 'Home',
-    'content': 'Welcome to the home page.',
-    'list': ['first', 'second'],
-    'dict': {'first': 1},
-    'is_authenticated': True
-  }
-  
-  return render(request, 'main/index.html', context)
+    context = {
+        "title": "Home - Главная",
+        "content": "Магазин мебели HOME",
+    }
+
+    return render(request, "main/index.html", context)
+
 
 def about(request):
-  return HttpResponse("Hello, world. You're at the main about page.")
+    context = {
+        "title": "Home - О нас",
+        "content": "О нас",
+        "text_on_page": "Текст на странице О нас. Здесь можно разместить информацию о компании, ее миссии, ценностях и истории. Это поможет посетителям лучше понять, кто мы и чем занимаемся.",
+    }
+
+    return render(request, "main/about.html", context)
